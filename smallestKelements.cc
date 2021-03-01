@@ -44,12 +44,12 @@ vector<int> findKthSmalles(Heap &h, int k)
 		p; 
 
 	// Insert root into the priority queue 
-  vector<int> a;
+  	vector<int> a;
 	p.push(make_pair(h.v[0], 0)); 
 
 	for (int i = 0; i < k - 1; ++i) { 
 		int j = p.top().second; 
-      a.push_back(p.top().first);
+      		a.push_back(p.top().first);
 		p.pop(); 
 		int l = left(j), r = right(j); 
 		if (l < h.n) 
