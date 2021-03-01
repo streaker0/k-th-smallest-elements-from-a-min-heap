@@ -47,9 +47,9 @@ vector<int> findKthSmalles(Heap &h, int k)
   	vector<int> a;
 	p.push(make_pair(h.v[0], 0)); 
 
-	for (int i = 0; i < k - 1; ++i) { 
+	for (int i = 0; i < k ; ++i) { 
 		int j = p.top().second; 
-      		a.push_back(p.top().first);
+      	a.push_back(p.top().first);
 		p.pop(); 
 		int l = left(j), r = right(j); 
 		if (l < h.n) 
@@ -64,7 +64,8 @@ vector<int> findKthSmalles(Heap &h, int k)
 int main() 
 { 
 	Heap h(7); 
-	//h.v = vector<int> { 10, 50, 40, 75, 60, 65, 45}; 
+	//h.v = vector<int> { 10, 50, 40, 75, 60, 65, 45};
+	h.v.clear(); 
 	h.v.push_back(10);
 	h.v.push_back(50);
 	h.v.push_back(40);
@@ -72,9 +73,15 @@ int main()
 	h.v.push_back(60);
 	h.v.push_back(65);
 	h.v.push_back(45);
-	int k = 4; 
-  vector<int> l = findKthSmalles(h, k);
-  for (auto i = l.begin(); i != l.end(); ++i) 
+	cout<<"All the elements are: "<<endl;
+	int k = 4;
+	for (auto i = h.v.begin(); i != h.v.end(); ++i) 
+        cout << *i << " ";  
+    	cout<<endl;
+    	cout<<"The four smallest elements are: "<<endl;
+  	vector<int> l = findKthSmalles(h, k);
+  	for (auto i = l.begin(); i != l.end(); ++i) 
         cout << *i << " "; 
+    	cout<<endl;
 	return 0; 
 } 
